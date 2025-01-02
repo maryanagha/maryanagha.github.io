@@ -1,0 +1,164 @@
+:root {
+    --color-bg-one: #323b4c;
+    --color-bg-two: rgba(100, 100, 100, 0.179);
+}
+
+html {
+    scroll-behavior: smooth;
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    font-family: "Open Sans", serif;
+    background-color: #dbdbdb;
+    color: #1f1f1f;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+a,
+button,
+div {
+    transition: 0.2s ease-out;
+}
+
+h1,
+h2,
+h3,
+b {
+    font-family: "Poppins", serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+nav {
+    padding: 1rem;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.478);
+}
+
+.logo {
+    font-family: "Poppins", serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.othernavthings {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 0.3rem;
+}
+
+nav a {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.7rem;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+nav a span {
+    font-size: 1rem !important;
+}
+
+nav a:hover {
+    background-color: var(--color-bg-two);
+    transform: translateY(0.3rem);
+}
+
+nav a.highlighted {
+    background-color: var(--color-bg-one);
+    color: white;
+}
+
+.scrollablemain {
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    transition: 0.5s;
+}
+
+.scrollsec {
+    scroll-snap-align: start;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+.dark {
+    background-color: #333;
+    color: #fff;
+}
+
+.scrollseccont {
+    width: 100%;
+    max-width: 50rem;
+}
+
+.aboutmesection {
+    display: flex;
+    flex-direction: row;
+    margin: 0 2rem;
+    gap: 2rem;
+    transform: translateY(-7vh);
+    width: 100%;
+}
+
+.aboutmesection h1 {
+    font-size: 3rem;
+}
+
+.aboutme {
+    width: 0;
+    flex: 1;
+}
+
+img.maryimg {
+    border-radius: 3rem;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border: 1rem solid white;
+    box-shadow: -1rem 1rem 1rem #000000ab;
+    width: 0;
+    flex: 1;
+}
+
+.top-message {
+    position: absolute;
+    bottom: 3rem;
+    display: flex;
+    width: 100%;
+    animation: pop .3s;
+    cursor: pointer;
+}
+
+.top-message span {
+    margin: 0 auto;
+    background: #ffffff;
+    box-shadow: 0 5px 10px #00000073;
+    border-radius: 50%;
+    padding: 1rem;
+}
+
+@keyframes pop {
+    from {
+        transform: translateY(0.5rem);
+        opacity: 0;
+    }
+    to {
+        transform: none;
+        opacity: 1;
+    }
+}

@@ -29,3 +29,34 @@ topMessage.addEventListener('click', () => {
         behavior: 'smooth'
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const paragraphs = document.querySelectorAll('p');
+    let observerOptions = { threshold: 0.1 };
+    let queue = [];
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting && !queue.includes(entry.target)) {
+                queue.push(entry.target);
+                if (queue.length === 1) {
+                    animateQueue();
+                }
+            }
+        });
+    }, observerOptions);
+
+    paragraphs.forEach((p) => {
+        p.style.opacity = 0;
+        p.style.transition = 'opacity 0.5s';
+        observer.observe(p);
+    });
+
+    function animateQueue() {
+        if (queue.length === 0) return;
+        let current = queue.shift();
+        current.style.display = 'block';
+        current.style.opacity = 1;
+        setTimeout(animateQueue, 600);
+    }
+});
